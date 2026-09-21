@@ -15,7 +15,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       PYTHONDONTWRITEBYTECODE: '1'
-      ETSY_OAUTH_HOME: ${{ runner.temp }}/isolated-oauth-home
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -24,6 +23,8 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: ${{ matrix.python }}
+      - name: Isolate runtime configuration
+        run: echo "ETSY_OAUTH_HOME=$RUNNER_TEMP/isolated-oauth-home" >> "$GITHUB_ENV"
       - name: Check source and public history
         run: python tools/check_release.py --history
       - name: Offline regression and release checks
