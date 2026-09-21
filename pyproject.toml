@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "etsy-oauth-pkce"
+version = "0.1.0"
+description = "Zero-dependency OAuth 2.0 Authorization Code + PKCE scaffold for the Etsy Open API v3 (Seller Apps)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = []
+keywords = ["etsy", "oauth", "pkce", "open-api", "seller-app"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Internet :: WWW/HTTP",
+]
+
+[project.urls]
+Repository = "https://github.com/cnkevinlee/etsy-oauth-pkce"
+Issues = "https://github.com/cnkevinlee/etsy-oauth-pkce/issues"
+Changelog = "https://github.com/cnkevinlee/etsy-oauth-pkce/blob/main/CHANGELOG.md"
+
+[project.scripts]
+etsy-oauth = "etsy_oauth_pkce.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+include-package-data = false

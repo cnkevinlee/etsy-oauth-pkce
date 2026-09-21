@@ -1,0 +1,10 @@
+include README.md LICENSE pyproject.toml MANIFEST.in
+recursive-include src/etsy_oauth_pkce *.py
+recursive-include tests *.py
+prune docs
+prune bin
+prune tools
+prune release_checks
+prune private_checks
+prune .github
+exclude release-files.txt
